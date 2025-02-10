@@ -11,7 +11,8 @@ mod clap;
 mod global;
 mod item;
 
-use crate::bilibili::{CollectionItem, Credential, DanmakuOption, FilterOption};
+use crate::bilibili::{CollectionItem, Credential, DanmakuOption, FilterOption}
+;
 pub use crate::config::global::{ARGS, CONFIG, CONFIG_DIR, TEMPLATE};
 use crate::config::item::{deserialize_collection_list, serialize_collection_list, ConcurrentLimit};
 pub use crate::config::item::{NFOTimeType, PathSafeTemplate, RateLimit, WatchLaterConfig};
@@ -88,7 +89,7 @@ impl Config {
     #[cfg(not(test))]
     pub fn check(&self) {
         let mut ok = true;
-        if self.favorite_list.is_empty() && self.collection_list.is_empty() && !self.watch_later.enabled {
+        if self.favorite_list.is_empty() &&self.submission_list.is_empty() &&self.collection_list.is_empty() && !self.watch_later.enabled {
             ok = false;
             error!("没有配置任何需要扫描的内容，程序空转没有意义");
         }
